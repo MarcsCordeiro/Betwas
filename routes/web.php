@@ -28,3 +28,4 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/ranking', 'RankingController@index')->name('ranking');
