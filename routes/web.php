@@ -11,21 +11,38 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
+Route::group(['middleware' => 'admin'], function () {
+    Route::group(['middleware' => 'auth:admin'], function () {
+        Route::get('/admin', 'AdminController@index');
+    });
+
+    Route::get('/admin/login', 'AdminController@login');
+    Route::post('/admin/login', 'AdminController@postLogin')->name('login-admin');
+    
+    Route::get('/admin/logout', 'AdminController@logout')->name('logout-admin');
+    // Route::get('/admin', function () {
+    //     return view('admin/login');
+    // });
 });
 
 
+Route::group(['middleware' => 'web'], function () {
+    // Authentication Routes...
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+    // Registration Routes...
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('register', 'Auth\RegisterController@register');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/ranking', 'RankingController@index')->name('ranking');
+    
+    Route::get('/', function () {
+        return view('auth/login');
+    });
+});
+
 //Auth::routes();
 
-// Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/ranking', 'RankingController@index')->name('ranking');

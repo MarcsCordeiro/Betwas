@@ -1,5 +1,7 @@
 .theme-mix{
-    background: linear-gradient(140deg ,  #3d8cef  , #158e5c 50%) !important;
+    background: #0072ff !important; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #0072ff, #00F260 ) !important; /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #0072ff, #00F260)  !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .theme-resplend{
     background: linear-gradient(140deg ,  #177fff  , #d415e0 60%) !important;
