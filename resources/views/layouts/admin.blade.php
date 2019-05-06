@@ -12,12 +12,16 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/all.min.js') }}"></script>
+    <script src="{{ asset('js/fontawesome.min.js') }}"></script>
 
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{ asset('css/uikit.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
 </head>
 <body>
     <div id="app">
@@ -69,7 +73,10 @@
                             </li>
                             <li class="uk-nav-divider"></li>
                             <li class="uk-margin">
-                                <a href=""> Dashboard</a>
+                                <a href="{{route('admin')}}"> Dashboard</a>
+                            </li>
+                            <li class="uk-margin">
+                                <a href="{{route('users')}}"> Usuários</a>
                             </li>
                         </ul>
                     </nav>

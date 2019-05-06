@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 use Auth;
 
 class AdminController extends Controller
@@ -16,7 +18,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        $users = DB::table('users')->get();
+
+        return view('admin.index', ['users' => $users]);
     }
 
     public function login()
@@ -46,6 +50,13 @@ class AdminController extends Controller
         } else {
             return redirect('/admin/login')->withErrors(['errors' => 'Login Inválido!'])->withInput();
         }
+    }
+
+    public function users()
+    {
+        $users = DB::table('users')->get();
+
+        return view('admin.users', compact('users'));
     }
 
     public function logout()

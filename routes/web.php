@@ -13,7 +13,8 @@
 
 Route::group(['middleware' => 'admin'], function () {
     Route::group(['middleware' => 'auth:admin'], function () {
-        Route::get('/admin', 'AdminController@index');
+        Route::get('/admin', 'AdminController@index')->name('admin');
+        Route::get('/users', 'AdminController@users')->name('users');
     });
 
     Route::get('/admin/login', 'AdminController@login');
