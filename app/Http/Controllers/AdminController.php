@@ -65,4 +65,10 @@ class AdminController extends Controller
 
         return redirect('/admin/login');
     }
+
+    public function deleteUser() 
+    {
+        $id = $_GET["id"];
+        DB::table('users')->where('id', $id)->delete();
+    }
 }
