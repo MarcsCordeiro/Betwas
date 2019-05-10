@@ -14,6 +14,7 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/all.min.js') }}"></script>
     <script src="{{ asset('js/fontawesome.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
 
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
@@ -34,20 +35,21 @@
             <section class="uk-offcanvas-content">
                 <!-- menu main -->
                 <nav class="uk-navbar-container mb-menu theme-dense" uk-navbar="mode:click">
-                    <a href="" class="uk-navbar-item uk-logo" style="padding: 5px 19px 27px;">
+                    <a href="{{ route('home') }}" class="uk-navbar-item uk-logo" style="padding: 5px 19px 27px; color: white;">
                         Betwas
                     </a>
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav">
 
                             <li class="mb-active uk-visible@m">
-                                <a href=""  style="min-height: auto !important; margin: 3px;">
+                                <a href=""  style="min-height: auto !important; margin: 3px; color: white;">
                                     <img src="{{ asset('img/user_male.png') }}" alt="user" style="height:3.5em;position:relative;right:0.5em;" />
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="uk-navbar-dropdown" id="mb-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li><a href="{{ route('logout') }}"><span uk-icon="sign-out"></span>Sair</a></li>
+                                        <li><a href="{{ route('profile') }}" style="color: white;"><i class="fas fa-user"></i> Perfil</a></li>
+                                        <li><a href="{{ route('logout') }}" style="color: white;"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -73,16 +75,19 @@
                             </li>
                             <li class="uk-nav-divider"></li>
                             <li class="uk-margin">
-                                <a href="{{ route('home') }}"> Dashboard</a>
+                                <a href="{{ route('home') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                             </li>
                             <li class="uk-margin">
-                                <a href="{{ route('ranking') }}">Classificação</a>
+                                <a href="{{ route('ranking') }}"><i class="fas fa-trophy"></i> Classificação</a>
+                            </li>
+                            <li class="uk-margin">
+                                <a href="{{ route('bet') }}"><i class="far fa-futbol"></i> Apostar</a>
                             </li>
                             <li class="uk-parent uk-margin">
-                                <a href="#"> Configurações</a>
+                                <a href="#"><i class="fas fa-cog"></i> Configurações</a>
                                 <ul class="uk-nav-sub">
-                                    <li><a href="#">Perfil</a></li>
-                                    <li><a href="#">Sub item</a></li>
+                                    <li><a href="{{ route('profile') }}"><i class="fas fa-user"></i> Perfil</a></li>
+                                    <li><a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -91,7 +96,7 @@
 
                     <!-- content page -->
                     <main class="mb-content">
-                        <section class="uk-flex uk-padding-small">
+                        <section class="uk-padding-small">
                             @yield('content')
                         </section>
                     </main>
@@ -105,6 +110,6 @@
     <script src="{{ asset('js/uikit.min.js') }}"></script>
     <script src="{{ asset('js/uikit-icons.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+
 </body>
 </html>
