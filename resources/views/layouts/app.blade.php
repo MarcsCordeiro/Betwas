@@ -17,15 +17,26 @@
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
 
     <!-- Styles -->
-    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{ asset('css/uikit.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <style type="text/css">
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url("{{ asset('img/loading.gif')}}") 50% 50% no-repeat white;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
+    <div id="loader" class="loader"></div> 
+    <div id="app" style="display: none;">
         @guest
         <!-- coisas que aparecem na tela de login -->
         <div>
@@ -110,6 +121,11 @@
     <script src="{{ asset('js/uikit.min.js') }}"></script>
     <script src="{{ asset('js/uikit-icons.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
-
 </body>
+<script type="text/javascript">
+    $(window).on("load", function() {
+        $(".loader").delay(300).fadeOut("slow"); //retire o delay quando for copiar!
+        $("#app").toggle("fast");
+    })
+</script>
 </html>
