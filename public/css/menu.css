@@ -144,6 +144,14 @@
     background: #555;
 }
 
+.remove-tabelas {
+    display: none;
+}
+
+.card-profile {
+    width: 50%;
+}
+
 /*color circle*/
 .circle-green{background:#4b9254;}
 .circle-red{background: var(--background-danger);}
@@ -156,5 +164,9 @@
 @media(max-width: 768px){
     .mb-content{
         width: var(--max);
+    }
+
+    .card-profile {
+        width: 90%;
     }
 }

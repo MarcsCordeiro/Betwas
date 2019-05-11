@@ -13,6 +13,7 @@
                 <th class="uk-text-center">Erros</th>
                 <th class="uk-text-center">Aproveitamento</th>
                 <th class="uk-text-center">Últimos 3</th>
+                <th class="uk-text-center">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
                     <span uk-icon="close" style="color: red"></span>
                     <span uk-icon="check" style="color: green"></span>
                 </td>
+                <td class="uk-text-center"><span class="uk-label uk-label-danger">Free</span></td>
             </tr>
             <tr>
                 <td class="uk-text-center">2</td>
@@ -45,6 +47,7 @@
                     <span uk-icon="close" style="color: red"></span>
                     <span uk-icon="close" style="color: red"></span>
                 </td>
+                <td class="uk-text-center"><span class="uk-label">Premium</span></td>
             </tr>
             <tr>
                 <td class="uk-text-center">2</td>
@@ -60,6 +63,7 @@
                     <span uk-icon="check" style="color: green"></span>
                     <span uk-icon="close" style="color: red"></span>
                 </td>
+                <td class="uk-text-center"><span class="uk-label uk-label-danger">Free</span></td>
             </tr>
         </tbody>
     </table>

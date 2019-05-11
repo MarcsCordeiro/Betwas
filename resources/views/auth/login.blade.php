@@ -14,25 +14,26 @@
                 <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
                     <div class="uk-width-1-1@m">
                         <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-                            <h3 class="uk-card-title uk-text-center" style="color: #00c6ff">Betwas</h3>
+                            <h3 class="uk-card-title uk-text-center" style="color: #00c6ff"><strong>Betwas</strong></h3>
                             <form  method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="uk-margin">
                                     <div class="uk-inline uk-width-1-1">
                                         <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                        <input class="uk-input uk-form-large" type="text" name="email" value="{{ old('email') }}" required autofocus>
+                                        <input class="uk-input uk-form-large" type="text" name="email" value="{{ old('email') }}" required autofocus placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="uk-margin">
                                     <div class="uk-inline uk-width-1-1">
                                         <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                        <input class="uk-input uk-form-large" type="password" name="password" required>
+                                        <input class="uk-input uk-form-large" type="password" name="password" required placeholder="Senha">
                                     </div>
                                 </div>
                                 <div class="uk-margin">
                                     <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
                                 </div>
                             </form>
+                            <p class="uk-text-center">Não possui uma conta? <a href="{{ route('register') }}">Registre-se</a></p>
                         </div>
                     </div>
                 </div>
