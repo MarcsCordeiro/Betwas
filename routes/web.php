@@ -15,6 +15,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/admin', 'AdminController@index')->name('admin');
         Route::get('/users', 'AdminController@users')->name('users');
+        Route::get('/list', 'AdminController@list')->name('list');
         Route::get('/admin/delete-user', 'AdminController@deleteUser')->name('delete-user');
     });
 

@@ -54,9 +54,13 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = DB::table('users')->get();
+        return view('admin.users');
+    }
 
-        return view('admin.users', compact('users'));
+    public function list() 
+    {
+        $users = DB::table('users')->get();  
+        return $users;
     }
 
     public function logout()

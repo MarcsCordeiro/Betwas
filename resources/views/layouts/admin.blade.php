@@ -9,12 +9,6 @@
 
     <title>Betwas - Administrador</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/all.min.js') }}"></script>
-    <script src="{{ asset('js/fontawesome.min.js') }}"></script>
-
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/uikit.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
@@ -32,6 +26,8 @@
             background: url("{{ asset('img/loading.gif')}}") 50% 50% no-repeat white;
         }
     </style>
+    <script src="{{ asset('js/uikit.min.js') }}"></script>
+    <script src="{{ asset('js/uikit-icons.min.js') }}"></script>    
 </head>
 <body>
     <div id="loader" class="loader"></div> 
@@ -106,15 +102,15 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/uikit.min.js') }}"></script>
-    <script src="{{ asset('js/uikit-icons.min.js') }}"></script>
+    <script src="{{ asset('js/all.min.js') }}"></script> 
+    <script src="{{ asset('js/fontawesome.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+    @stack('scripts')
+    <script type="text/javascript">
+        $(window).on("load", function() {
+            $(".loader").delay(300).fadeOut("slow"); //retire o delay quando for copiar!
+            $("#app").toggle("fast");
+        })
+    </script>
 </body>
-<script type="text/javascript">
-    $(window).on("load", function() {
-        $(".loader").delay(300).fadeOut("slow"); //retire o delay quando for copiar!
-        $("#app").toggle("fast");
-    })
-</script>
 </html>
